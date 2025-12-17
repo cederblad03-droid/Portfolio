@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #808080;
+    --foreground: #000000;
   }
 }
 
@@ -24,3 +24,41 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Page transition wrapper */
+#page-root {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* When navigating away */
+body.page-exit #page-root {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Initial enter state — removed on mount so it transitions to visible */
+body.page-enter #page-root {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.85);
+  color: var(--foreground);
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: rgba(10,10,10,0.75);
+    color: var(--foreground);
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  }
+}
+
