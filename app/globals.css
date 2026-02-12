@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #808080;
-    --foreground: #000000;
+    --background: #ffffff;       /*This is the background color */
+    --foreground: #000000;       /*This is the font text */
   }
 }
 
@@ -24,41 +24,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Page transition wrapper */
-#page-root {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms ease, transform 300ms ease;
-}
-
-/* When navigating away */
-body.page-exit #page-root {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-/* Initial enter state — removed on mount so it transitions to visible */
-body.page-enter #page-root {
-  opacity: 0;
-  transform: translateY(8px);
-}
 .card {
   padding: 20px;
   border-radius: 12px;
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   color: var(--foreground);
   max-width: 100%;
   margin: 0 auto;
   text-align: left;
-  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+  box-shadow: 0 8px 30px rgba(252, 3, 3, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   .card {
-    background-color: rgba(10,10,10,0.75);
+    background-color: rgba(199, 109, 6, 0.75); /* background for stuff on the page */
     color: var(--foreground);
-    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    box-shadow: 0 8px 30px rgba(185, 106, 2, 0.6); /* shadows of the stuff */
+  }
+}
+
+/* Navbar color customization variables */
+:root {
+  --nav-bg: rgba(192, 9, 9, 0.06);
+  --nav-text: #1147b9; /* default dark text */
+}
+
+/* Apply navbar variables via this helper class. Modify the variables above to change the navbar color site-wide. */
+.site-nav {
+  background-color: var(--nav-bg) !important;
+  color: var(--nav-text);
+}
+
+.site-nav a {
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nav-bg: rgb(199, 109, 6, 0.75); /* Color for navbar */
+    --nav-text: #000000;
   }
 }
 
