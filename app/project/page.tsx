@@ -9,6 +9,7 @@ export default function ProjectPage() {
           <nav className="flex items-center gap-4">
             <Link href="/" className="text-sm font-bold hover:underline">Home</Link>
             <Link href="/project" className="text-sm font-bold hover:underline">Projects</Link>
+            <Link href="/cv" className="text-sm font-bold hover:underline">CV</Link>
             <Link href="/contact" className="text-sm font-bold hover:underline">Contact</Link>
           </nav>
         </div>
